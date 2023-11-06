@@ -20,6 +20,9 @@ public class Main {
 
         Inscripcion inscripcion1 = new Inscripcion(alumno1, algoritmos);
         alumno1.agregarInscripcion(inscripcion1);
-        System.out.println(inscripcion1.Aprobada());
+
+        System.out.println("Nombre del alumno: " + alumno1.getNombre());
+        System.out.println("Inscripcion con correlativas: " +inscripcion1.getMateria().getNombre());
+        System.out.println("Estado de la inscripcion: " + inscripcion1.Aprobada());
     }
 }
