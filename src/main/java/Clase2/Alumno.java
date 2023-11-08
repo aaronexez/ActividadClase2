@@ -1,17 +1,17 @@
 package Clase2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Alumno {
     private String nombre;
-    private List<Inscripcion> inscripciones;
+    private List<Inscripcion> inscripciones = new ArrayList<>();
 
     public Alumno() {
     }
 
-    public Alumno(String nombre, List<Inscripcion> inscripciones) {
+    public Alumno(String nombre) {
         this.nombre = nombre;
-        this.inscripciones = inscripciones;
     }
 
     public String getNombre() {
@@ -22,14 +22,17 @@ public class Alumno {
         this.nombre = nombre;
     }
 
-    public List<Inscripcion> getInscripciones() {
-        return inscripciones;
-    }
-
-    public void setInscripciones(List<Inscripcion> inscripciones) {
-        this.inscripciones = inscripciones;
-    }
     public void agregarInscripcion(Inscripcion inscripcion) {
         inscripciones.add(inscripcion);
+    }
+    public void removerInscripcion(Inscripcion inscripcion) {
+        inscripciones.remove(inscripcion);
+    }
+    public void mostrarInscripciones() {
+        System.out.println("Inscripciones: ");
+        for (Inscripcion i : inscripciones) {
+            System.out.println(". " + i.getAlumno().getNombre());
+            System.out.println(" - " + i.getMateria().getNombre());
+        }
     }
 }

@@ -5,24 +5,23 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Materia> correlativas = new ArrayList<>();
 
-        Materia algoritmos = new Materia("Algoritmos y Estructuras de Datos", correlativas,true);
-        algoritmos.agregarCorrelativa(algoritmos);
+        Materia algoritmos = new Materia("Algoritmos y Estructuras de Datos",false);
 
-        Materia paradigmas = new Materia("Paradigmas de Programacion", correlativas,true);
-        paradigmas.agregarCorrelativa(paradigmas);
+        Materia paradigmas = new Materia("Paradigmas de Programacion", true);
+        paradigmas.agregarCorrelativa(algoritmos);
 
-        Materia diseño = new Materia("Diseño de Sistemas", correlativas,true);
+        Materia disenio = new Materia("Diseño de Sistemas", false);
+        disenio.agregarCorrelativa(paradigmas);
+        disenio.agregarCorrelativa(algoritmos);
 
-        List<Inscripcion> inscripciones = new ArrayList<>();
-        Alumno alumno1 = new Alumno("Aaron", inscripciones);
-
-        Inscripcion inscripcion1 = new Inscripcion(alumno1, algoritmos);
+        Alumno alumno1 = new Alumno("Aaron");
+        Inscripcion inscripcion1 = new Inscripcion(alumno1, disenio);
         alumno1.agregarInscripcion(inscripcion1);
 
         System.out.println("Nombre del alumno: " + alumno1.getNombre());
-        System.out.println("Inscripcion con correlativas: " +inscripcion1.getMateria().getNombre());
+        alumno1.mostrarInscripciones();//crear metodo con inscripcion unica
         System.out.println("Estado de la inscripcion: " + inscripcion1.Aprobada());
+        disenio.mostrarCorrelativas();
     }
 }

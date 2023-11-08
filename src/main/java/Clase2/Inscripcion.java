@@ -37,13 +37,22 @@ public class Inscripcion {
         if (correlativas == null) {
             return aprobada;
         }
-
+/*
         for (int i = 0; i < correlativas.size(); i++) {
             Materia correlativa = correlativas.get(i);
             if (correlativa.getAprobada() != true){
                 aprobada = false;
             }
         }
+
+ */
+        for (Materia i : correlativas){
+            Materia correlativa = i;
+            if (i.getAprobada() != true){
+                aprobada = false;
+            }
+        }
+
         return aprobada;
     }
 }
