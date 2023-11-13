@@ -25,14 +25,22 @@ public class Alumno {
     public void agregarInscripcion(Inscripcion inscripcion) {
         inscripciones.add(inscripcion);
     }
+
     public void removerInscripcion(Inscripcion inscripcion) {
         inscripciones.remove(inscripcion);
     }
+
     public void mostrarInscripciones() {
-        System.out.println("Inscripciones: ");
+        int contador = 1;
         for (Inscripcion i : inscripciones) {
-            System.out.println(". " + i.getAlumno().getNombre());
-            System.out.println(" - " + i.getMateria().getNombre());
+            System.out.println("\n------ INSCRIPCION " + contador + " ------\n");
+            System.out.println(". alumno: " + i.getAlumno().getNombre());
+            System.out.println(". materia: " + i.getMateria().getNombre());
+            System.out.println(". estado: " + i.Aprobada());
+            System.out.println(i.estado(i.Aprobada()));
+            i.getMateria().mostrarCorrelativas();
+            contador++;
         }
+        System.out.println("\n---------------------------");
     }
 }

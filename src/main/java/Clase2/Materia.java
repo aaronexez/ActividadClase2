@@ -49,7 +49,7 @@ public class Materia {
     }
 
     public void mostrarCorrelativas() {
-        System.out.println("Correlativas: ");
+        System.out.println("CORRELATIVAS");
         for (Materia i : correlativas) {
             System.out.println(". " + i.getNombre());
         }
